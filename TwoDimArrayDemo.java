@@ -21,10 +21,17 @@ public class TwoDimArrayDemo {
 
         for(int i=0; i<a.length; i++){ //i represents row index i=0
             for(int j=0; j<a[i].length; j++){ //j column index j=0
-                System.out.println(a[i][j]);
+                System.out.print(a[i][j]);
             }
+            System.out.println();//break the line
         }
 
+        for(int r[]:a){
+            for(int i:r){
+                System.out.print(i+" ");
+            }
+            System.out.println();
+        }
 
     }
 }
