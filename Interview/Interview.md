@@ -104,6 +104,20 @@ public class Main {
 ><p><b>String[] args</b> - The parameter of the method, which is an array of String objects. The parameter name args is a convention but can be changed.</p>
 
 ><p>The main method is required in every Java program, and it is typically where the program starts and ends. It contains the code that defines what the program does and how it operates.</p>
+```
+// javac means java-complier
+// for compile use javac MyFirst.java
+// It will create a file called First.class
+// NOTE: MyFirst.class will contain C file "bit code"
+//  then use Java MyFirst it will run the file
+
+// As we know JVM is interpertor it will convert bitcode into  machine code and it will execute a programme
+
+// "public" : So that it can be accessable from this class to JVM when it call main()
+// "Static" : we cannot use class unless we created a object 
+//            if we want to create any thing without using a object in class that can be achieve by declaring "static"
+```
+
 
 <br/>
 <br/>
@@ -111,3 +125,104 @@ public class Main {
 <br/>
 
 # Coding
+
+print hello world if number is divisible by both
+```java
+import java.util.Scanner;
+
+public class print {
+    public static void main(String[] args){
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Enter a number");
+        int num = myObj.nextInt();
+
+        if(num%3==0){
+            System.out.print("Hello ");
+        }
+        if(num%5==0){
+            System.out.print("World");
+        }
+    }
+}
+
+// NOTE: Do no put else or else if in the above code 
+```
+
+Linked List palindrome
+
+```java
+public class palindrome {
+    private Node head;
+
+    private static class Node {
+        char data;
+        Node next;
+
+        Node(char data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public void push(char data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+    }
+
+    public boolean isPalindrome() {
+        if (head == null || head.next == null) {
+            return true;
+        }
+        Node slow = head;
+        Node fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node secondHalf = reverse(slow.next);
+        Node firstHalf = head;
+        while (secondHalf != null) {
+            if (firstHalf.data != secondHalf.data) {
+                return false;
+            }
+            firstHalf = firstHalf.next;
+            secondHalf = secondHalf.next;
+        }
+        return true;
+    }
+
+    private Node reverse(Node head) {
+        Node prev = null;
+        while (head != null) {
+            Node next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+        return prev;
+    }
+
+    public static void main(String[] args) {
+        LinkedListPalindrome list = new LinkedListPalindrome();
+        String value = "asdfghjkXkjhgfdsa";
+        for (int i = 0; i < value.length(); i++) {
+            list.push(value.charAt(i));
+        }
+        if (list.isPalindrome()) {
+            System.out.println("The linked list is a palindrome");
+        } else {
+            System.out.println("The linked list is not a palindrome");
+        }
+    }
+}
+
+```
+
