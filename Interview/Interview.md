@@ -126,7 +126,7 @@ public class Main {
 
 # Coding
 
-print hello world if number is divisible by both
+## 1. print hello world if number is divisible by both
 ```java
 import java.util.Scanner;
 
@@ -148,7 +148,7 @@ public class print {
 // NOTE: Do no put else or else if in the above code 
 ```
 
-Linked List palindrome
+## 2.Linked List palindrome
 
 ```java
 public class palindrome {
@@ -226,3 +226,235 @@ public class palindrome {
 
 ```
 
+
+## 3. Binary Search
+```java
+public static int binarySearch(int[] array, int target) {
+    int left = 0;
+    int right = array.length - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (array[mid] == target) {
+            return mid;
+        } else if (array[mid] > target) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return -1;
+}
+
+```
+
+
+# 4. pattern printing
+         *
+     *   *   *
+*    *   *   *   *
+```java
+public static void printPattern() {
+    int n = 3;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            System.out.print("  ");
+        }
+        for (int j = 0; j <= i; j++) {
+            System.out.print("*");
+            if (j < i) {
+                System.out.print("   ");
+            }
+        }
+        System.out.println();
+    }
+}
+```
+
+## 5.  First 20 even numbers and add them up
+```java
+public static void main(String[] args) {
+    int count = 0;
+    int sum = 0;
+    int i = 1;
+    while (count < 20) {
+        if (i % 2 == 0) {
+            sum += i;
+            count++;
+        }
+        i++;
+    }
+    System.out.println("Sum of the first 20 even numbers is " + sum);
+}
+
+```
+
+## 6. check for prime and find next Prime 
+```java
+import java.util.Scanner;
+public class NextNumberisPrime {
+   public static int isPrime(int num){
+      int prime = 1;
+      for(int i = 2; i < num; i++) {
+         if((num % i) == 0) {
+            prime = 0;
+         }
+      }
+      return num;
+   }
+   public static int nextPrime(int num) {
+      num++;
+      for (int i = 2; i < num; i++) {
+         if(num%i == 0) {
+            num++;
+            i=2;
+         } else {
+            continue;
+         }
+      }
+      return num;
+   }
+   public static void main(String args[]){
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter a number ::");
+      int num = sc.nextInt();
+      int result = 0;
+      int prime = isPrime(num);
+      if (prime == 1) {
+         System.out.println(num+" is a prime number");
+      } else {
+         System.out.println(num+" is not a prime number");
+      }
+      System.out.println("Next prime number is: "+nextPrime(num));
+   }
+}
+``` 
+
+```
+output
+Enter a number ::
+25
+25 is not a prime number
+Next prime number is: 29
+```
+
+
+
+## 7. Fibonacci using Recursion
+```java
+import java.util.Scanner;
+
+public class FibonacciRecursion {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        for (int i = 0; i <= num; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+    }
+    
+    public static int fibonacci(int num) {
+        if (num == 0) {
+            return 0;
+        }
+        else if (num == 1 || num == 2) {
+            return 1;
+        }
+        else {
+            return fibonacci(num - 1) + fibonacci(num - 2);
+        }
+    }
+}
+
+```
+
+## 8. Is Palindrome
+```java
+import java.util.Scanner;
+
+public class Palindrome {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        if (isPalindrome(num)) {
+            System.out.println(num + " is a palindrome.");
+        }
+        else {
+            System.out.println(num + " is not a palindrome.");
+        }
+    }
+    
+    public static boolean isPalindrome(int num) {
+        int reversed = 0;
+        int original = num;
+        while (num != 0) {
+            int remainder = num % 10;
+            reversed = reversed * 10 + remainder;
+            num /= 10;
+        }
+        return original == reversed;
+    }
+}
+
+```
+
+## 9. frequency of number in given array
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class ArrayFrequency {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 1, 2, 3, 4, 5, 6};
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int i = 0; i < array.length; i++) {
+            int number = array[i];
+            if (frequencyMap.containsKey(number)) {
+                frequencyMap.put(number, frequencyMap.get(number) + 1);
+            }
+            else {
+                frequencyMap.put(number, 1);
+            }
+        }
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            int number = entry.getKey();
+            int frequency = entry.getValue();
+            System.out.println(number + " appears " + frequency + " times.");
+        }
+    }
+}
+
+```
+
+## 10. String Palindrome
+```java
+import java.util.Scanner;
+
+public class StringPalindrome {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        if (isPalindrome(str)) {
+            System.out.println(str + " is a palindrome.");
+        }
+        else {
+            System.out.println(str + " is not a palindrome.");
+        }
+    }
+    
+    public static boolean isPalindrome(String str) {
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
+```
