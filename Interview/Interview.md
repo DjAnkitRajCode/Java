@@ -104,22 +104,18 @@ public class Main {
 ><p><b>String[] args</b> - The parameter of the method, which is an array of String objects. The parameter name args is a convention but can be changed.</p>
 
 ><p>The main method is required in every Java program, and it is typically where the program starts and ends. It contains the code that defines what the program does and how it operates.</p>
-```
-// javac means java-complier
-// for compile use javac MyFirst.java
-// It will create a file called First.class
-// NOTE: MyFirst.class will contain C file "bit code"
-//  then use Java MyFirst it will run the file
 
-// As we know JVM is interpertor it will convert bitcode into  machine code and it will execute a programme
-
-// "public" : So that it can be accessable from this class to JVM when it call main()
-// "Static" : we cannot use class unless we created a object 
-//            if we want to create any thing without using a object in class that can be achieve by declaring "static"
-```
+>// javac means java-complier
+>// for compile use javac MyFirst.java
+>// It will create a file called First.class
+>// NOTE: MyFirst.class will contain C file "bit code"
+>//  then use Java MyFirst it will run the file
+>// As we know JVM is interpertor it will convert bitcode into  machine code and it will execute a programme
+>// "public" : So that it can be accessable from this class to JVM when it call main()
+>// "Static" : we cannot use class unless we created a object 
+>//            if we want to create any thing without using a object in class that can be achieve by declaring "static"
 
 
-<br/>
 <br/>
 <br/>
 <br/>
@@ -228,6 +224,13 @@ public class palindrome {
 
 
 ## 3. Binary Search
+>Here's how the binary search algorithm works:
+>First, the middle element of the array is selected as the starting point.
+>If the middle element is equal to the target element, the search is successful and the index of the element is returned.
+>If the middle element is greater than the target element, the search is narrowed to the left half of the array.
+>If the middle element is less than the target element, the search is narrowed to the right half of the array.
+>The search interval is then divided in half and the process is repeated until the target element is found or the search interval is empty.
+
 ```java
 public static int binarySearch(int[] array, int target) {
     int left = 0;
