@@ -127,6 +127,7 @@ public class Main {
 > <b>Encapsulation</b> : Encapsulation is the process of hiding the implementation details of an object from the outside world, and only exposing a public interface that can be used to interact with the object. This helps to maintain the integrity of the object's data and methods, and prevents unauthorized access or modification. 
 
 > Real-life example of encapsulation : A vehicle consists of many complex systems and components, such as the engine, transmission, brakes, and suspension. However, from the driver's perspective, all of these systems are hidden, and they only interact with the vehicle through a simple interface, such as a steering wheel, pedals, and dashboard controls. The vehicle may also use encapsulation to protect the driver and passengers by providing safety features like airbags and seat belts.
+
 ```java 
 // Encapsulation example
 public class Car {
@@ -152,6 +153,7 @@ public class Car {
 > <b>Abstraction</b> : Abstraction is the process of simplifying complex systems by breaking them down into smaller, more manageable components. In OOP, abstraction is achieved through the use of abstract classes and interfaces, which provide a common set of methods and properties that can be used to interact with a group of related objects. 
 
 > Real-life example of abstraction :  A vehicle may offer a variety of features and capabilities, such as GPS navigation, entertainment systems, and automatic parking. However, from the driver's perspective, all of these features are presented as a simple set of options that can be accessed through the vehicle's dashboard or touchscreen interface. The vehicle may also use abstraction to simplify the design process by breaking down complex systems into smaller, more manageable components.
+
 ```java
 // Abstraction example
 public interface CarInterface {
@@ -187,7 +189,8 @@ public class Car implements CarInterface {
 > <b>Inheritance</b> : Inheritance is the process of creating new classes that inherit properties and methods from existing classes. This allows for code reuse, and helps to simplify the development process by reducing the amount of code that needs to be written. 
 
 > Real-life example of inheritance:  A vehicle may come in different models, such as sedan, SUV, or truck, which offer different features and capabilities. These models may inherit properties and methods from a common vehicle class, reducing the amount of code that needs to be written.
->
+
+
 ```java
 public class Vehicle {
     // common properties and methods for all vehicles
@@ -206,6 +209,7 @@ public class Truck extends Vehicle {
 > <b>Polymorphism</b> : Polymorphism is the ability of objects to take on different forms, depending on the context in which they are used. This allows for more flexible and modular code, as objects can be easily swapped in and out without affecting the rest of the system. 
 
 > Real-life example of polymorphism : A vehicle may be driven in different ways, such as on the highway, in the city, or off-road. The vehicle may use polymorphism to ensure that it can handle different driving conditions and situations, without requiring the driver to make any additional adjustments or changes to the vehicle.
+
 ```java
 public class Vehicle {
     public void drive() {
