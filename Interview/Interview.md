@@ -719,3 +719,74 @@ public class LongestPalindromicSubstring {
 }
 
 ```
+
+# 14. merge sort
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+void merge(int arr[], int l, int mid, int r){
+    int n1 = mid-l+1;
+    int n2 = r-mid;
+
+    int a1[n1];
+    int a2[n2];
+
+    for(int i=0; i<n1; i++){
+        a1[i] = arr[l+i];
+    }
+    for(int i=0; i<n1; i++){
+        a2[i] = arr[mid+1+i];
+    }
+
+    int i=0; int j=0; //pointer
+    int k=l;
+
+    while(i<n1 && j<n2){
+        if(a1[i]<a2[j]){
+            arr[k]=a1[i];
+            k++; i++;
+        }
+        else{
+            arr[k]=a2[j];
+            k++; j++;
+        }
+    }
+
+    while(i<n1){
+        arr[k] = a1[i];
+        k++; i++;
+    }
+    while(j<n2){
+        arr[k] = a2[j];
+        k++; j++;
+    }
+}
+
+void mergeSort (int arr[], int l, int r){
+    if(l<r){
+        int mid=(l+r)/2;
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid+1, r);
+        
+        merge(arr, l, mid, r);
+    }
+}
+
+
+int main(){
+    int arr[] = {5,4,3,2,1};
+    mergeSort(arr, 0 ,4);
+    for(int i=0; i<5; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    return 0;
+}
+```
+> Explaination <br/>
+> This is an implementation of the merge sort algorithm in C++. Here's a brief explanation of what's going on:<br/>
+> The mergeSort function takes an array arr, a starting index l, and an ending index r. It uses recursion to divide the array into smaller subarrays until each subarray has only one element or is empty. Then, it calls the merge function to merge the sorted subarrays into a single sorted array.<br/>
+> The merge function takes an array arr, a starting index l, a middle index mid, and an ending index r. It creates two temporary arrays a1 and a2 to store the elements of the two subarrays. It then compares the first elements of each subarray, adds the smaller element to the original array arr, and increments the respective pointers i and j. The process is repeated until all elements have been added to arr.<br/>
+> The main function creates an array arr and passes it to mergeSort along with the starting and ending indices. It then prints out the sorted array.<br/>
+> Overall, this implementation of merge sort sorts an array of integers in ascending order.
